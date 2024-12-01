@@ -1,4 +1,5 @@
 import { fastify } from 'fastify'
+import { DatabaseMemory } from './database-memory.js'
 
 const app = fastify()
 
