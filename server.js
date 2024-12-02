@@ -11,7 +11,9 @@ app.get('/', () => {
 })
 
 app.get('/videos', () => {
-  return 'GET para ler'
+  const videos = db.list()
+
+  return videos
 })
 
 app.post('/videos', (request, reply) => {
