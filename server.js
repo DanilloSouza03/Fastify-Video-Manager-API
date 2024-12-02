@@ -10,8 +10,12 @@ app.get('/', () => {
   return 'API no ar!'
 })
 
-app.get('/videos', () => {
-  const videos = db.list()
+app.get('/videos', (request) => {
+  const search = request.query.search
+
+  console.log(search)
+
+  const videos = db.list(search)
 
   return videos
 })
