@@ -16,7 +16,7 @@ app.get('/videos', () => {
   return videos
 })
 
-app.post('/videos', (request, reply) => {
+app.post('/video', (request, reply) => {
   const {title, description, duration} = request.body
 
   db.create({
@@ -28,11 +28,11 @@ app.post('/videos', (request, reply) => {
   return reply.status(201).send()
 })
 
-app.put('/videos/:id', (request, reply) => {
+app.put('/video/:id', (request, reply) => {
   const {title, description, duration} = request.body
   const idVideo = request.params.id
 
-  const video = db.update(idVideo, {
+  db.update(idVideo, {
     title: title,
     description: description,
     duration: duration
@@ -41,8 +41,10 @@ app.put('/videos/:id', (request, reply) => {
   return reply.status(204).send()
 })
 
-app.delete('/video/:id', () => {
-  return 'DELETE para deletar'
+app.delete('/video/:id', (request, reply) => {
+  const videoId = request.params.id
+  db.delete(videoId)
+  return reply.status(204).send()
 })
 
 app.listen({
