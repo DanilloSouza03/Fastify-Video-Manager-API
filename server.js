@@ -16,8 +16,6 @@ app.get('/', () => {
 app.get('/videos', (request) => {
   const search = request.query.search
 
-  console.log(search)
-
   const videos = db.list(search)
 
   return videos
