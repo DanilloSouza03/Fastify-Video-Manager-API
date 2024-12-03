@@ -1,10 +1,13 @@
 import { fastify } from 'fastify'
 import { DatabaseMemory } from './database-memory.js'
 import { title } from 'node:process'
+import { DatabasePostgres } from './database-postgres.js'
 
 const app = fastify()
 
-const db = new DatabaseMemory()
+// const db = new DatabaseMemory()
+
+const db = new DatabasePostgres()
 
 app.get('/', () => {
   return 'API no ar!'
