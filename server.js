@@ -53,7 +53,5 @@ app.delete('/video/:id', (request, reply) => {
 })
 
 app.listen({
-  port: 3333
-}).then(() => {
-  console.log('Rodando na porta 3333')
+  port: process.env.PORT ?? 3333
 })
